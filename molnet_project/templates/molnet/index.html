@@ -1,0 +1,27 @@
+{% extends 'molnet/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+  
+<body>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+    		<h1 > 
+        		Molecular Networking
+        	</h1>
+		</div>
+	</div>
+	
+	<div class="row">
+		
+		<div class="col-md-4">
+			<a class="btn btn-info btn-block my-4" type="button" href="{% url 'get_data' %}">
+            Login via PiMP
+            </a>
+		</div>
+		
+	</div>
+</div>
+</body>
+{% endblock %}

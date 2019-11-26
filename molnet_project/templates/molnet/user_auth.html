@@ -1,0 +1,50 @@
+{% extends 'molnet/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1>
+					Login via PiMP Account
+				</h1>
+				</br>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="row">
+	<div class="col-md-6">
+        <form role="form" id="user_auth_form" method="post" action="{% url 'user_auth' %}">
+        
+        {% csrf_token %}
+        <div class="form-group">
+        {% for field in form.visible_fields %}
+            <label for="analysis_info"> {{ field.label_tag }} </label>
+            </br>
+            {{ field }}
+            {% if field.help_text %}
+                </br>
+                <small id="help_text" class="form-text text-muted">{{ field.help_text }}</small>
+                </br>
+            {% endif %}
+            
+            {% for error in field.errors %}
+                
+                <p color="red"> {{ error }} </p>
+            {% endfor %}
+        {% endfor %}
+        </div>
+        <input class="btn btn-info btn-block my-4" type="submit" value="Login"/>
+    
+        </form>
+
+    </div>
+    </div>
+    
+    
+</div>
+{% endblock %}
